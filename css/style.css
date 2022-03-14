@@ -75,7 +75,7 @@ p {
 
 main {
     width: 100%;
-    padding-bottom: 110px;
+    padding-bottom: 0px;
 }
 
 section {
@@ -91,19 +91,13 @@ section {
     margin: 0 auto;
 }
 
-#purple {
-    background-color: #7F3F98;
-    padding-bottom: 50px;
-}
-
 .graffiti {
     font-family: subway-new-york-sc, sans-serif;
     font-size: 2.5em;
 }
 
-.center {
-    text-align: center;
-}
+/***----------END OF UNIVERSAL STYLING -------------***/
+
 
 /*---------------------------------
 
@@ -148,6 +142,26 @@ header {
 #hamitems a:hover { 
     background: #EC008C;
     color: #E2EB9D;
+    /*Transition*/ 
+    -webkit-transition:All .5s ease;
+    -moz-transition:All .5s ease;
+    -o-transition:All .5s ease;
+ 
+    /*Transform*/ 
+    -webkit-transform: rotate(-10deg) scale(1.2);
+    -moz-transform: rotate(-10deg) scale(1.2);
+    -o-transform: rotate(-10deg) scale(1.2);
+}
+#hamitems a:hover:nth-child(2){
+    /*Transition*/ 
+    -webkit-transition:All .5s ease;
+    -moz-transition:All .5s ease;
+    -o-transition:All .5s ease;
+ 
+    /*Transform*/ 
+    -webkit-transform: rotate(10deg) scale(1.2);
+    -moz-transform: rotate(10deg) scale(1.2);
+    -o-transform: rotate(10deg) scale(1.2);
 }
 
 /* (B) SHOW HAMBURGER ICON */
@@ -222,6 +236,9 @@ header {
     }
 }
 
+/***----------END OF NAV SECTION-------------***/
+
+
 /*---------------------------------
 
 Footer Section
@@ -229,14 +246,13 @@ Footer Section
 ----------------------------------*/
 
 footer {
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: #00AEEF;
     text-align: center;
     color: #1A7AC1;
-    padding-top: 15px;
+    padding-top: 25px;
     padding-bottom: 20px;
 }
 
@@ -255,9 +271,11 @@ footer a:hover {
     color: #E2EB9D;
 }
 
+/***----------END OF FOOTER SECTION-------------***/
+
 /*---------------------------------
 
-Home Section
+Homepage Section
 
 ----------------------------------*/
 
@@ -285,6 +303,16 @@ Home Section
     transform: translate(-50%, -0%);
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.soundcloud::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge add Firefox */
+.soundcloud {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+}
+
 .hero .headline {
     position: absolute;
     bottom: 130px;
@@ -293,6 +321,54 @@ Home Section
 .headline p {
     font-size: 2em;
 }
+
+#purple-home {
+    background-color: #7F3F98;
+    padding-top: 70px;
+    padding-bottom: 10px;
+}
+
+.lyrics h2{
+    animation: slidein 1s;
+}
+
+@keyframes slidein {
+    from {
+      transform: translateX(-100%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+}
+
+aside {
+    width: 100%;
+    background-color: #7F3F98;
+}
+
+aside img {
+    animation-name: switch-color;
+	filter: grayscale(100%) opacity(30%);
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+aside img:hover {
+    animation-name: switch-color;
+	filter: grayscale(100%);
+  	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes switch-color {
+	from {filter: grayscale(100%);}
+	to {filter: none;}
+}
+
+/***----------END OF HOMEPAGE SECTION-------------***/
 
 /*---------------------------------
 
@@ -305,12 +381,16 @@ About Section
     margin-top: 50px;
 }
 
+#purple-about {
+    background-color: #7F3F98;
+    padding-bottom: 50px;
+}
+
 .flex-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
+}   
 .item {
     width: 100%;
 }
@@ -319,19 +399,168 @@ About Section
     max-width: 100%;
 }
 
+/*About Page Image Effects*/
+.item img{
+    transition: .3s ease-in-out; 
+}
+.item img:hover{
+    -webkit-transform: rotate(10deg) scale(.8);
+	transform: rotate(10deg) scale(.8);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out; 
+}
+
+.cast {
+    padding-right: 20px;
+}
+
 iframe {
     width: 100%;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.soundcloud::-webkit-scrollbar {
+/*---------------------------------
+
+Slideshow Styling
+
+----------------------------------*/
+
+/* Slideshow container */
+.slideshow-container {
+    min-width: 80%;
+    position: relative;
+    margin: 20px auto 0;
+}
+  
+  /* Hide the images by default */
+.mySlides {
     display: none;
 }
-/* Hide scrollbar for IE, Edge add Firefox */
-.soundcloud {
-    -ms-overflow-style: none;
-    scrollbar-width: none; /* Firefox */
+
+.mySlides img{
+      width: 100%;
 }
+  
+  /* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: #FF7BD0;
+    font-weight: bold;
+    font-size: 3em;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+  
+  /* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+  
+  /* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: #e2eb9dec;
+}
+  
+  /* Caption text */
+.text {
+    color: #7F3F98;
+    font-size: 1em;
+    padding: 8px 0px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    background-color: #FF7BD0;
+}
+
+.text,
+.numbertext{
+    font-family: 'Open Sans', sans-serif;
+}
+.fade{
+    animation: fadeIn linear .5s;
+    -webkit-animation: fadeIn linear .5s;
+    -moz-animation: fadeIn linear .5s;
+    -o-animation: fadeIn linear .5s;
+    -ms-animation: fadeIn linear .5s;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+  
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+  
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+  
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+  
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #7F3F98;
+    font-size: 0.8em;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    background-color: #FF7BD0;
+}
+  
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #FF7BD0;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active, .dot:hover {
+    background-color: #E2EB9D;
+}
+  
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/***------------END OF ABOUT PAGE SECTION-------------***/
 
 /*---------------------------------
 
@@ -341,6 +570,22 @@ Show Section
 
 #show {
     padding-bottom: 70px;
+}
+
+#purple-show {
+    padding-top: 70px;
+    background-color: #7F3F98;
+}
+
+/*Show Page Image Slide*/
+
+.slide {
+    margin-left: -30px;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.slide:hover {
+    margin-left: 0;
 }
 
 .button {
@@ -355,12 +600,12 @@ Show Section
     font-family: 'Open Sans', sans-serif;
     font-size: 1.1em;
     font-weight: 600;
-    margin: 4px 2px;
+    margin: 10px 0;
     transition-duration: 0.4s;
     cursor: pointer;
     border: 4px solid #FF7BD0;
     margin-top: 20px;
-    width: 100%;
+    width: 80%;
 }
 
 .button:hover {
@@ -368,6 +613,23 @@ Show Section
     border: 4px solid #E2EB9D;
     color: #7F3F98;
 }
+
+.flex-box2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item1 {
+    width: 100%;
+}
+
+.item1 img {
+    max-width: 100%;
+    margin-bottom: -120px;
+    z-index: 50;
+}
+.item1:nth-of-type(1) { order: 2;}
 
 /*---------------------------------
 
@@ -382,16 +644,34 @@ video {
 }
 
 .vid-container {
-    max-width: 85%;
+    max-width: 80%;
     margin: 0 auto;
     padding-top: 116px;
 }
 
 .vid-container p {
-    font-size: 2em;
     text-align: center;
 }
 
+.vid-container .graffiti {
+    font-size: 5em;
+    text-align: center;
+    animation: zoom-in-zoom-out 2s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+}
+
+/***----------END OF SHOW SECTION-------------***/
 
 /*---------------------------------
 
@@ -407,14 +687,17 @@ Media Queries
     header {
         background-color: #E2EB9D;
     }
-    footer {
-        position: static;
-    }
     main {
         padding-bottom: 0px;
     }
     .lyrics p {
         font-size: 1em;
+    }
+    .item1 img {
+        margin-bottom: -85px;
+    }
+    #purple-show {
+        padding-top: 40px;
     }
 }
 
@@ -443,6 +726,9 @@ Media Queries
         font-size: 1em;
         margin-top: 10px;
     }
+    #purple-home {
+        padding-top: 40px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -451,27 +737,32 @@ Media Queries
     }
     .vid-container {
         padding-top: 175px;
-        max-width: 40%;
+        max-width: 50%;
     }
-    .flex-box {
+    .flex-box, .flex-box2 {
         flex-direction: row;
     }
-    .item {
+    .item, .item1 {
         width: 50%;
     }
+    .item1:nth-of-type(2) { order: 2;}
+
     h2 {
         font-size: 4em;
     }
     .section-wrapper .button {
-        width: 30%;
+        width: 50%;
     }
 }
 
 @media (min-width: 768px) and (orientation:landscape) {
+    .slideshow-container {
+        max-width: 30%;
+    }
     .banner {
         min-height: 90vh;
     }
     .lyrics {
-        max-width: 600px;
+        max-width: 800px;
     }
 }
